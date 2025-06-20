@@ -40,7 +40,9 @@ const aboutData = [
 export default function AboutCards() {
 	return (
 		<div className="w-full py-12 px-4 md:px-16 flex flex-col items-center gap-10">
-			<h2 className="text-4xl md:text-5xl font-bold glow-text">About Me</h2>
+			<h2 className="text-4xl md:text-5xl font-bold glow-text">
+				{":)"} About Me
+			</h2>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
 				{aboutData.map((card, idx) => (
 					<div key={idx} className="card-container fade-in">

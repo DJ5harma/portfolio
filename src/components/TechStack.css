@@ -1,0 +1,21 @@
+.glow-text {
+	background: linear-gradient(270deg, #00ffe0, #ff00d4, #00ffe0);
+	background-size: 300% 300%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradientShift 12s ease infinite;
+	text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes gradientShift {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

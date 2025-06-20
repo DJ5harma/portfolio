@@ -32,13 +32,13 @@
 	to {
 		opacity: 1;
 		width: 60%;
-		/* max-width: 300px; */
+		max-width: 600px;
 		border-radius: 10px;
 	}
 }
 #intro_2 {
 	opacity: 0;
-	animation: intro_2 1s ease-out 2s forwards;
+	animation: intro_2 1s ease-out forwards;
 }
 
 @keyframes slideInLeft {
@@ -78,13 +78,13 @@
 .equals {
 	opacity: 0;
 	animation: fadeIn 0.5s ease-out forwards;
-	animation-delay: 2.2s;
+	animation-delay: 2s;
 }
 
 .fsd {
 	opacity: 0;
 	animation: fadeIn 1s ease-out forwards;
-	animation-delay: 2.5s;
+	animation-delay: 2.3s;
 }
 
 @keyframes gradientShift {
