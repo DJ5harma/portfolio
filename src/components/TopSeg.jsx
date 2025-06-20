@@ -1,16 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import "./TopSeg.css";
+import "@/styles/TopSeg.css";
 
 export default function TopSeg() {
 	return (
 		<div className="w-full flex justify-center">
-			<div className="w-full max-w-6xl flex flex-col md:flex-row items-center md:items-start gap-10 overflow-hidden">
+			<div className="w-full max-w-6xl flex flex-col md:flex-row items-center gap-10 overflow-hidden">
 				<div
-					id="intro_2"
-					className="w-32 h-32 md:w-[100px] md:h-[400px] relative overflow-hidden md:rounded-none"
-					style={{ animationDelay: "3s" }}
+					className="w-32 h-32 md:w-[100px] md:h-[400px] relative overflow-hidden md:rounded-none opacity-0"
+					style={{ animation: "intro_2 2s forwards 2.5s" }}
 				>
 					<Image
 						src="/images/profile_pic.jpeg"
@@ -20,14 +19,17 @@ export default function TopSeg() {
 					/>
 				</div>
 
-				<div
-					id="container"
-					className="flex flex-1 flex-col gap-8 items-center md:items-start text-center md:text-left"
-				>
-					<h1 id="intro_0" className="text-4xl md:text-7xl glow-text font-bold">
+				<div className="flex flex-1 flex-col gap-8 items-center md:items-start text-center md:text-left">
+					<h1
+						style={{ animation: "intro_0 1s forwards" }}
+						className="text-4xl md:text-7xl glow-text font-bold"
+					>
 						Hello!
 					</h1>
-					<h1 id="intro_1" className="text-3xl md:text-5xl glow-text">
+					<h1
+						style={{ animation: "intro_1 2s forwards 3s" }}
+						className="text-3xl md:text-5xl glow-text opacity-0"
+					>
 						I'm <b className="glow-text">Dhananjay Sharma</b>
 					</h1>
 
@@ -42,10 +44,9 @@ export default function TopSeg() {
 						<span className="fsd font-bold text-2xl">Full Stack Dev</span>
 					</div>
 
-					<h1
-						id="intro_1"
-						className="flex w-full gap-4"
-						style={{ animationDelay: "2s" }}
+					<div
+						style={{ animation: "intro_1 2s forwards 3s" }}
+						className="flex w-full gap-4 opacity-0 justify-around"
 					>
 						<a
 							className="flex items-center gap-2"
@@ -75,7 +76,7 @@ export default function TopSeg() {
 							<img src="/logos/leetcode.svg" alt="" className="w-10" />
 							<span className="hidden md:block">Leetcode</span>
 						</a>
-					</h1>
+					</div>
 				</div>
 			</div>
 		</div>

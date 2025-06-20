@@ -1,6 +1,6 @@
 "use client";
 
-import "./AboutCards.css";
+import "@/styles/AboutCards.css";
 
 const aboutData = [
 	{
