@@ -1,0 +1,38 @@
+.card-container {
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 1rem;
+	padding: 1.5rem;
+	backdrop-filter: blur(10px);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-container:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 0 20px rgba(0, 255, 234, 0.1);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fade-in {
+	animation: fadeIn 1s ease-in-out forwards;
+	opacity: 0;
+}
+
+.glow-text {
+	background: linear-gradient(270deg, #00ffe0, #ff00d4, #00ffe0);
+	background-size: 300% 300%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradientShift 12s ease infinite;
+	text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+}
