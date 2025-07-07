@@ -9,17 +9,17 @@ export default function Projects() {
 				{projects.map(({ github, name, period, summary, techStack }, index) => (
 					<div
 						key={index}
-						className="bg-white/5 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/10 transition-all duration-300 hover:shadow-[0_0_25px_2px_rgba(255,255,255,0.3)] group"
+						className="bg-card/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-border transition-all duration-300 hover:shadow-glow group"
 					>
 						<div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
 							<div className="flex items-center gap-2">
-								<h3 className="text-2xl font-semibold text-white">{name}</h3>
+								<h3 className="text-2xl font-semibold text-foreground">{name}</h3>
 								{github && (
 									<a
 										href={github}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+										className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
 										title="View on GitHub"
 									>
 										<img

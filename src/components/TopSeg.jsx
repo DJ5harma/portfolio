@@ -56,7 +56,7 @@ export default function TopSeg() {
 							<img
 								src="/logos/github.svg"
 								alt=""
-								className="w-10 bg-white rounded-full mr-1"
+								className="w-10 bg-card rounded-full mr-1"
 							/>
 							<span className="hidden md:block">GitHub</span>
 						</a>
