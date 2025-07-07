@@ -180,6 +180,30 @@ body {
   }
 }
 
+/* Reduced motion animations for weak devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-rotate {
+    animation: none !important;
+  }
+  
+  .hover-lift:hover,
+  .hover-glow:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
 @keyframes slideInUp {
   from {
     opacity: 0;

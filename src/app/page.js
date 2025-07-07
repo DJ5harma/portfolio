@@ -17,8 +17,6 @@ export default function Home() {
 					<HeroSection />
 				</section>
 
-				{/* About Section */}
-				<AboutSection />
 
 				{/* Skills Section */}
 				<section id="skills">
@@ -34,6 +32,9 @@ export default function Home() {
 				<section id="experience">
 					<ExperienceTimeline />
 				</section>
+				
+				{/* About Section */}
+				<AboutSection />
 
 				{/* Contact Section */}
 				<section id="contact">

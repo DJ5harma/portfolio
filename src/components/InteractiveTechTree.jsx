@@ -2,54 +2,94 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useState, useCallback } from "react";
+import {
+	useEffect,
+	useState,
+	useCallback,
+	useRef,
+	useLayoutEffect,
+} from "react";
 import { techList } from "@/data/techList";
 
 function TechPopup({ tech, position, onHover, onLeave }) {
+	const popupRef = useRef(null);
+	const [adjustedPos, setAdjustedPos] = useState(position);
+
+	useLayoutEffect(() => {
+		if (!popupRef.current) return;
+
+		const popup = popupRef.current;
+		const rect = popup.getBoundingClientRect();
+		const padding = 16;
+
+		let x = position.x;
+		let y = position.y;
+
+		const viewportWidth = window.innerWidth;
+		const viewportHeight = window.innerHeight;
+
+		if (x + rect.width + padding > viewportWidth) {
+			x = viewportWidth - rect.width - padding;
+		}
+
+		if (y + rect.height + padding > viewportHeight) {
+			y = viewportHeight - rect.height - padding;
+		}
+
+		if (y < padding) {
+			y = padding;
+		}
+
+		if (x < padding) {
+			x = padding;
+		}
+
+		setAdjustedPos({ x, y });
+	}, [position]);
+
 	if (!tech) return null;
 
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.8, y: 20 }}
-			animate={{ opacity: 1, scale: 1, y: 0 }}
-			exit={{ opacity: 0, scale: 0.8, y: 20 }}
+			ref={popupRef}
+			initial={{ opacity: 0, scale: 0.9 }}
+			animate={{ opacity: 1, scale: 1 }}
+			exit={{ opacity: 0, scale: 0.9 }}
 			transition={{ duration: 0.2 }}
 			onMouseEnter={onHover}
 			onMouseLeave={onLeave}
 			style={{
 				position: "fixed",
-				left: position.x,
-				top: position.y,
-				transform: "translateX(-50%) translateY(-100%)",
+				left: adjustedPos.x,
+				top: adjustedPos.y,
 				zIndex: 1000,
 			}}
-			className="bg-gradient-to-br from-neutral-950 to-neutral-900 backdrop-blur-xl rounded-2xl p-8 max-w-sm border border-neutral-800 shadow-2xl"
+			className="bg-gradient-to-br from-[#1f1f2b]/80 to-[#2b2b40]/80 backdrop-blur-xl rounded-2xl p-6 max-w-sm border border-white/10 shadow-[0_4px_40px_rgba(124,58,237,0.3)] transition-all duration-300"
 		>
-			<div className="flex items-center gap-4 mb-6">
-				<div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-xl flex items-center justify-center">
+			<div className="flex items-center gap-4 mb-5">
+				<div className="w-16 h-16 bg-gradient-to-tr from-purple-500/30 to-blue-500/30 rounded-xl flex items-center justify-center shadow-inner shadow-purple-500/10">
 					<img
 						src={tech.logo}
 						alt={tech.name}
-						className="w-full h-full object-contain rounded-xl p-1 bg-white"
+						className="w-full h-full object-contain rounded-xl p-1 bg-white shadow-md"
 					/>
 				</div>
 				<div>
-					<h3 className="text-2xl font-bold text-gradient-primary">
+					<h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
 						{tech.name}
 					</h3>
-					<div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mt-2" />
+					<div className="h-1 w-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mt-1 animate-pulse" />
 				</div>
 			</div>
 
-			<p className="text-muted-foreground mb-6 leading-relaxed text-sm">
+			<p className="text-sm text-neutral-300 leading-relaxed mb-5">
 				{tech.description}
 			</p>
-
 			<a
 				href={tech.url}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+				className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-lg transition-all duration-300"
 			>
 				Learn More
 				<svg
@@ -79,8 +119,36 @@ export default function InteractiveTechTree() {
 
 	const handleTechHover = useCallback((tech, event) => {
 		if (!event) return;
+
+		const popupWidth = 320;
+		const popupHeight = 240;
+		const padding = 20;
+
+		const { clientX, clientY } = event;
+		const viewportWidth = window.innerWidth;
+		const viewportHeight = window.innerHeight;
+
+		let x = clientX;
+		let y = clientY;
+
+		// Adjust X if too close to edges
+		if (x < popupWidth / 2 + padding) {
+			x = popupWidth / 2 + padding;
+		} else if (x > viewportWidth - popupWidth / 2 - padding) {
+			x = viewportWidth - popupWidth / 2 - padding;
+		}
+
+		// Adjust Y if popup goes above or below the screen
+		if (y < popupHeight + padding) {
+			y = clientY + 30;
+		} else if (y + padding > viewportHeight - popupHeight / 2) {
+			y = clientY - popupHeight - 30;
+		} else {
+			y = clientY - 30;
+		}
+
 		setHoveredTech(tech);
-		setHoverPosition({ x: event.clientX, y: event.clientY });
+		setHoverPosition({ x, y });
 		setIsHovering(true);
 	}, []);
 

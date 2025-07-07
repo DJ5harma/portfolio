@@ -282,7 +282,7 @@ export default function ExperienceTimeline() {
 							{[
 								{ label: "Open to Work", value: "Available", icon: Briefcase },
 								{ label: "Location", value: "India", icon: Calendar },
-								{ label: "Interests", value: "Full Stack, AI/ML", icon: Star },
+								{ label: "Interests", value: "Full Stack, AI", icon: Star },
 							].map((stat, index) => (
 								<motion.div
 									key={stat.label}

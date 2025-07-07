@@ -41,19 +41,19 @@ export default function HeroSection() {
 			name: "GitHub",
 			icon: Github,
 			href: "https://github.com/DJ5harma",
-			color: "hover:text-gray-400",
+			color: "hover:text-gray-500 dark:hover:text-gray-400",
 		},
 		{
 			name: "LinkedIn",
 			icon: Linkedin,
 			href: "https://www.linkedin.com/in/dhananjay-sharma-016550254/",
-			color: "hover:text-blue-400",
+			color: "hover:text-blue-500 dark:hover:text-blue-400",
 		},
 		{
 			name: "LeetCode",
 			icon: Code2,
 			href: "https://leetcode.com/u/Dhananjay_Sharma_/",
-			color: "hover:text-yellow-400",
+			color: "hover:text-yellow-500 dark:hover:text-yellow-400",
 		},
 	];
 
@@ -65,38 +65,21 @@ export default function HeroSection() {
 				init={particlesInit}
 				loaded={particlesLoaded}
 				options={{
-					background: {
-						color: {
-							value: "transparent",
-						},
-					},
+					background: { color: { value: "transparent" } },
 					fpsLimit: 120,
 					interactivity: {
 						events: {
-							onClick: {
-								enable: true,
-								mode: "push",
-							},
-							onHover: {
-								enable: true,
-								mode: "repulse",
-							},
+							onClick: { enable: true, mode: "push" },
+							onHover: { enable: true, mode: "repulse" },
 							resize: true,
 						},
 						modes: {
-							push: {
-								quantity: 4,
-							},
-							repulse: {
-								distance: 200,
-								duration: 0.4,
-							},
+							push: { quantity: 4 },
+							repulse: { distance: 200, duration: 0.4 },
 						},
 					},
 					particles: {
-						color: {
-							value: "#9333ea",
-						},
+						color: { value: "#9333ea" },
 						links: {
 							color: "#9333ea",
 							distance: 150,
@@ -104,35 +87,18 @@ export default function HeroSection() {
 							opacity: 0.3,
 							width: 1,
 						},
-						collisions: {
-							enable: true,
-						},
 						move: {
-							direction: "none",
 							enable: true,
-							outModes: {
-								default: "bounce",
-							},
-							random: false,
 							speed: 1,
-							straight: false,
+							outModes: { default: "bounce" },
 						},
 						number: {
-							density: {
-								enable: true,
-								area: 800,
-							},
+							density: { enable: true, area: 800 },
 							value: 80,
 						},
-						opacity: {
-							value: 0.5,
-						},
-						shape: {
-							type: "circle",
-						},
-						size: {
-							value: { min: 1, max: 5 },
-						},
+						opacity: { value: 0.5 },
+						shape: { type: "circle" },
+						size: { value: { min: 1, max: 5 } },
 					},
 					detectRetina: true,
 				}}
@@ -140,21 +106,20 @@ export default function HeroSection() {
 			/>
 
 			{/* Gradient Orbs */}
-			<div className="absolute inset-0 overflow-hidden">
+			<div className="absolute inset-0 overflow-hidden pointer-events-none">
+				{/* Blurred Blobs */}
 				<motion.div
-					className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-full blur-3xl"
-					animate={{
-						x: mousePosition.x * 50,
-						y: mousePosition.y * 50,
-					}}
+					className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-[120px] 
+      bg-gradient-to-br from-indigo-400/30 to-sky-300/30 
+      dark:from-indigo-600/20 dark:to-sky-500/20"
+					animate={{ x: mousePosition.x * 50, y: mousePosition.y * 50 }}
 					transition={{ type: "spring", stiffness: 50, damping: 20 }}
 				/>
 				<motion.div
-					className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-pink-600/20 to-purple-600/20 rounded-full blur-3xl"
-					animate={{
-						x: -mousePosition.x * 50,
-						y: -mousePosition.y * 50,
-					}}
+					className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-[120px] 
+      bg-gradient-to-br from-pink-300/30 to-fuchsia-400/30 
+      dark:from-pink-600/20 dark:to-fuchsia-600/20"
+					animate={{ x: -mousePosition.x * 50, y: -mousePosition.y * 50 }}
 					transition={{ type: "spring", stiffness: 50, damping: 20 }}
 				/>
 			</div>
@@ -184,15 +149,8 @@ export default function HeroSection() {
 						className="relative mx-auto mb-8"
 					>
 						<motion.div
-							animate={{
-								rotate: [0, 5, -5, 0],
-								scale: [1, 1.02, 1],
-							}}
-							transition={{
-								duration: 6,
-								repeat: Infinity,
-								repeatType: "reverse",
-							}}
+							animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.02, 1] }}
+							transition={{ duration: 6, repeat: Infinity }}
 							className="relative"
 						>
 							<div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl">
@@ -202,7 +160,6 @@ export default function HeroSection() {
 									className="w-full h-full object-cover"
 								/>
 							</div>
-							{/* Glowing ring effect */}
 							<motion.div
 								animate={{
 									scale: [1, 1.1, 1],
@@ -211,24 +168,23 @@ export default function HeroSection() {
 								transition={{
 									duration: 3,
 									repeat: Infinity,
-									repeatType: "reverse",
 								}}
 								className="absolute inset-0 rounded-full border-2 border-purple-500/50 blur-sm"
 							/>
 						</motion.div>
 					</motion.div>
 
-					{/* Greeting */}
+					{/* Heading */}
 					<motion.h1
 						initial={{ opacity: 0, scale: 0.8 }}
 						animate={inView ? { opacity: 1, scale: 1 } : {}}
 						transition={{ duration: 0.8, delay: 0.4 }}
-						className="text-6xl md:text-8xl font-bold text-gradient-primary"
+						className="text-6xl md:text-8xl font-black bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
 					>
 						Hello!
 					</motion.h1>
 
-					{/* Name and Title */}
+					{/* Subheading & Typing Effect */}
 					<div className="space-y-4">
 						<motion.h2
 							initial={{ opacity: 0, y: 30 }}
@@ -237,7 +193,7 @@ export default function HeroSection() {
 							className="text-4xl md:text-6xl font-bold text-foreground"
 						>
 							I'm{" "}
-							<span className="text-gradient-accent glow-text">
+							<span className="bg-gradient-to-r from-blue-600 via-cyan-400 to-teal-300 bg-clip-text text-transparent font-black">
 								Dhananjay Sharma
 							</span>
 						</motion.h2>
@@ -278,28 +234,7 @@ export default function HeroSection() {
 						try to bring ideas to life with code.
 					</motion.p>
 
-					{/* Stats */}
-					{/* <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex flex-wrap justify-center gap-8 text-center"
-          >
-            <div className="glass rounded-xl p-4 min-w-[120px]">
-              <div className="text-2xl font-bold text-gradient-primary">1000+</div>
-              <div className="text-sm text-muted-foreground">GitHub Commits</div>
-            </div>
-            <div className="glass rounded-xl p-4 min-w-[120px]">
-              <div className="text-2xl font-bold text-gradient-secondary">650+</div>
-              <div className="text-sm text-muted-foreground">DSA Problems</div>
-            </div>
-            <div className="glass rounded-xl p-4 min-w-[120px]">
-              <div className="text-2xl font-bold text-gradient-accent">20+</div>
-              <div className="text-sm text-muted-foreground">Projects Built</div>
-            </div>
-          </motion.div> */}
-
-					{/* CTA Buttons */}
+					{/* Buttons */}
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
 						animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -367,17 +302,17 @@ export default function HeroSection() {
 				initial={{ opacity: 0 }}
 				animate={inView ? { opacity: 1 } : {}}
 				transition={{ duration: 1, delay: 2.2 }}
-				className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+				className="absolute bottom-0 left-1/2 transform -translate-x-1/3"
 			>
 				<motion.div
 					animate={{ y: [0, 10, 0] }}
 					transition={{ duration: 2, repeat: Infinity }}
-					className="w-6 h-10 border-2 border-purple-500 rounded-full flex justify-center"
+					className="w-6 h-10 border-2 border-purple-500 dark:border-purple-400 rounded-full flex justify-center"
 				>
 					<motion.div
 						animate={{ y: [0, 12, 0] }}
 						transition={{ duration: 2, repeat: Infinity }}
-						className="w-1 h-3 bg-purple-500 rounded-full mt-2"
+						className="w-1 h-3 bg-purple-500 dark:bg-purple-400 rounded-full mt-2"
 					/>
 				</motion.div>
 			</motion.div>
