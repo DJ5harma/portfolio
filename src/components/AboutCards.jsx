@@ -15,24 +15,24 @@ const aboutData = [
 		title: "Backend",
 		points: [
 			"Developed scalable APIs and microservices with Node.js and Express",
-			"Implemented real-time systems with WebSockets, Redis Pub/Sub, and WebRTC",
-			"Handled authentication, encryption, file handling, and Docker-based deployments",
+			"Implemented real-time systems with Socket.IO, Redis Pub/Sub, and WebRTC",
+			"Handled authentication, encryption, and Docker-based deployments",
 		],
 	},
 	{
-		title: "DSA & Competitive",
+		title: "DSA & Core Computer Science",
 		points: [
-			"Solved 600+ questions across Leetcode & other sites",
+			"Solved various types of questions across Leetcode & other sites",
 			"Strong foundation in OS, DBMS, CN, OOP, Automata etc.",
-			"1000+ GitHub contributions and active open-source dev",
+			"Utilized problem solving patterns in personal projects.",
 		],
 	},
 	{
 		title: "Education",
 		points: [
 			"B.Tech. CS @ UIET, Kurukshetra University (2022 - 2026)",
-			"CGPA: 7.0 • JEE 2022: 93.2%ile",
-			"Core subjects: DSA, OS, OOP, CN, DBMS, Compiler Design",
+			"CGPA: 7.0 (as of 6th sem) • JEE Mains 2022: 93.2%ile",
+			"String foundation in DSA, OS, OOP, CN, DBMS, Compiler Design",
 		],
 	},
 ];

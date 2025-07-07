@@ -2,7 +2,9 @@ import { achievements } from "@/data/achievements";
 export default function Achievements() {
 	return (
 		<section className="w-full flex flex-col items-center">
-			<h2 className="text-4xl md:text-5xl font-bold mb-12 glow-text">🏆 Achievements</h2>
+			<h2 className="text-4xl md:text-5xl font-bold mb-12 glow-text">
+				🏆 Achievements
+			</h2>
 
 			<div className="w-full max-w-4xl px-6 grid sm:grid-cols-2 gap-8">
 				{achievements.map(({ title }, i) => (

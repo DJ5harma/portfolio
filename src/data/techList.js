@@ -14,7 +14,8 @@ export const techList = [
 	{
 		name: "Express",
 		logo: "/logos/express.svg",
-		description: "Minimal Node.js framework for slapping together APIs in style.",
+		description:
+			"Minimal Node.js framework for slapping together APIs in style.",
 		url: "https://expressjs.com/",
 	},
 	{
@@ -26,7 +27,8 @@ export const techList = [
 	{
 		name: "Redis",
 		logo: "/logos/redis.svg",
-		description: "Lightning-fast key-value store. Used for caching, queues, and flexing.",
+		description:
+			"Lightning-fast key-value store. Used for caching, queues, and flexing.",
 		url: "https://redis.io/",
 	},
 	{
@@ -38,31 +40,36 @@ export const techList = [
 	{
 		name: "Next.js",
 		logo: "/logos/nextjs.svg",
-		description: "The React overlord. Handles SSR, routing, and APIs like a boss.",
+		description:
+			"The React overlord. Handles SSR, routing, and APIs like a boss.",
 		url: "https://nextjs.org/",
 	},
 	{
 		name: "Node.js",
 		logo: "/logos/node.svg",
-		description: "Server-side JS. Non-blocking beast. Powers the backend hustle.",
+		description:
+			"Server-side JS. Non-blocking beast. Powers the backend hustle.",
 		url: "https://nodejs.org/",
 	},
 	{
 		name: "Docker",
 		logo: "/logos/docker.svg",
-		description: "Containerization juggernaut. Runs your app anywhere but your emotions.",
+		description:
+			"Containerization juggernaut. Runs your app anywhere but your emotions.",
 		url: "https://www.docker.com/",
 	},
 	{
 		name: "Git & GitHub",
 		logo: "/logos/git_github.svg",
-		description: "Version control lifeline. Commits, branches, and the occasional force push to fix your sins.",
+		description:
+			"Version control lifeline. Commits, branches, and the occasional force push to fix your sins.",
 		url: "https://git-scm.com/",
 	},
 	{
 		name: "C++",
 		logo: "/logos/cpp.svg",
-		description: "My first love. I use it for DSA — fast, powerful, and deeply unforgiving.",
+		description:
+			"My first love. I use it for DSA — fast, powerful, and deeply unforgiving.",
 		url: "https://isocpp.org/",
 	},
 	{
@@ -86,13 +93,15 @@ export const techList = [
 	{
 		name: "Tailwind CSS",
 		logo: "/logos/tailwind.svg",
-		description: "Utility-first CSS framework. Design like a god, write like a coder.",
+		description:
+			"Utility-first CSS framework. Design like a god, write like a coder.",
 		url: "https://tailwindcss.com/",
 	},
 	{
 		name: "JavaScript",
 		logo: "/logos/js.svg",
-		description: "Dynamic language for web dev. Loves callbacks and chaos equally.",
+		description:
+			"Dynamic language for web dev. Loves callbacks and chaos equally.",
 		url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
 	},
 ];

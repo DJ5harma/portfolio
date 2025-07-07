@@ -3,7 +3,9 @@ import { projects } from "@/data/projects";
 export default function Projects() {
 	return (
 		<section className="w-full flex flex-col items-center">
-			<h2 className="text-4xl md:text-5xl font-bold mb-12 glow-text">🚀 Best Projects</h2>
+			<h2 className="text-4xl md:text-5xl font-bold mb-12 glow-text">
+				🚀 Best Projects
+			</h2>
 
 			<div className="w-full max-w-5xl px-6 space-y-10">
 				{projects.map(({ github, name, period, summary, techStack }, index) => (
@@ -13,7 +15,9 @@ export default function Projects() {
 					>
 						<div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
 							<div className="flex items-center gap-2">
-								<h3 className="text-2xl font-semibold text-foreground">{name}</h3>
+								<h3 className="text-2xl font-semibold text-foreground">
+									{name}
+								</h3>
 								{github && (
 									<a
 										href={github}
@@ -27,7 +31,7 @@ export default function Projects() {
 											alt={github}
 											className="w-8 h-8 sm:w-10 sm:h-10 object-contain transition-transform duration-300 group-hover:scale-125 bg-white rounded-full"
 										/>
-                                        <span>Repo</span>
+										<span>Repo</span>
 									</a>
 								)}
 							</div>

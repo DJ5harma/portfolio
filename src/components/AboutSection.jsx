@@ -51,7 +51,8 @@ export default function AboutSection() {
 								</li>
 								<li className="flex items-center gap-3">
 									<span className="w-2 h-2 bg-blue-500 rounded-full" />
-									Authentication, encryption, file handling, & Docker-based deployments
+									Authentication, encryption, file handling, & Docker-based
+									deployments
 								</li>
 							</ul>
 						</div>
@@ -74,7 +75,7 @@ export default function AboutSection() {
 								</li>
 								<li className="flex items-center gap-3">
 									<span className="w-2 h-2 bg-green-500 rounded-full" />
-									1000+ GitHub contributions
+									1000+ GitHub commits
 								</li>
 							</ul>
 						</div>

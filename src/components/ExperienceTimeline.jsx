@@ -62,11 +62,7 @@ export default function ExperienceTimeline() {
 			description: "Mastering new technologies and building diverse projects",
 			icon: Star,
 			type: "skill",
-			achievements: [
-				"YouTube Clone",
-				"MERN Stack Projects",
-				"GitHub Contributions",
-			],
+			achievements: ["YouTube Clone", "MERN Stack Projects", "GitHub commits"],
 		},
 		{
 			year: "2023",

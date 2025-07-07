@@ -9,7 +9,7 @@ import {
 	Send,
 	Github,
 	Linkedin,
-	ExternalLink,
+	Code2,
 } from "lucide-react";
 
 export default function ContactSection() {
@@ -62,7 +62,7 @@ export default function ContactSection() {
 		},
 		{
 			name: "LeetCode",
-			icon: ExternalLink,
+			icon: Code2,
 			href: "https://leetcode.com/u/Dhananjay_Sharma_/",
 			color: "hover:text-yellow-400",
 			bgColor: "bg-yellow-600",
@@ -127,7 +127,9 @@ export default function ContactSection() {
 				>
 					{/* Contact Information */}
 					<motion.div variants={itemVariants} className="space-y-8">
-						<h3 className="text-3xl font-bold text-foreground mb-8">Get In Touch</h3>
+						<h3 className="text-3xl font-bold text-foreground mb-8">
+							Get In Touch
+						</h3>
 
 						{/* Contact Cards */}
 						<div className="space-y-6">

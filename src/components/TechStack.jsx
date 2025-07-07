@@ -43,7 +43,7 @@ export default function TechStack() {
 		const rect = event.currentTarget.getBoundingClientRect();
 		const x = rect.left + rect.width / 2;
 		const y = rect.top - 20; // Position above the card
-		
+
 		setHoveredTech(tech);
 		setHoverPosition({ x, y });
 	};
@@ -73,7 +73,8 @@ export default function TechStack() {
 						Tech Arsenal
 					</h2>
 					<p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-						A comprehensive collection of technologies I've mastered and continue to explore
+						A comprehensive collection of technologies I've mastered and
+						continue to explore
 					</p>
 				</motion.div>
 
@@ -88,9 +89,9 @@ export default function TechStack() {
 						<motion.div
 							key={tech.name}
 							variants={itemVariants}
-							whileHover={{ 
+							whileHover={{
 								scale: 1.05,
-								z: 50 
+								z: 50,
 							}}
 							onHoverStart={(e) => handleTechHover(tech, e)}
 							onHoverEnd={handleTechLeave}
@@ -162,10 +163,10 @@ export default function TechStack() {
 						animate={{ opacity: 1, scale: 1 }}
 						exit={{ opacity: 0, scale: 0.8 }}
 						style={{
-							position: 'fixed',
+							position: "fixed",
 							left: hoverPosition.x,
 							top: hoverPosition.y,
-							transform: 'translateX(-50%) translateY(-100%)',
+							transform: "translateX(-50%) translateY(-100%)",
 							zIndex: 1000,
 						}}
 						className="glass rounded-2xl p-6 max-w-sm border border-border shadow-glow-lg"
@@ -180,7 +181,9 @@ export default function TechStack() {
 								{hoveredTech.name}
 							</h3>
 						</div>
-						<p className="text-muted-foreground mb-4">{hoveredTech.description}</p>
+						<p className="text-muted-foreground mb-4">
+							{hoveredTech.description}
+						</p>
 						<a
 							href={hoveredTech.url}
 							target="_blank"
@@ -188,16 +191,25 @@ export default function TechStack() {
 							className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
 						>
 							Learn More
-							<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+							<svg
+								className="w-4 h-4"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth={2}
+									d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+								/>
 							</svg>
 						</a>
-						
+
 						{/* Arrow pointing to the card */}
 						<div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-purple-500/50" />
 					</motion.div>
 				)}
-
 			</div>
 		</section>
 	);
