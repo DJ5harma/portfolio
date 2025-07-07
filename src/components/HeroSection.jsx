@@ -254,7 +254,7 @@ export default function HeroSection() {
                   2000,
                   "An Algorithmic Thinker",
                   2000,
-                  "A Builder Who Breaks sometimes",
+                  "A Builder Who Breaks sometimes :)",
                   2000,
                   "A Mind in Constant Debug Mode",
                   2000,

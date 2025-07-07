@@ -1,29 +1,9 @@
 export const techList = [
-    {
-        name: "JavaScript",
-        logo: "/logos/js.svg",
-        description:
-            "Dynamic language for web dev. Loves callbacks and chaos equally.",
-        url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    },
 	{
 		name: "TypeScript",
 		logo: "/logos/ts.svg",
 		description: "Type-safe JS that saves your ass when things go sideways.",
 		url: "https://www.typescriptlang.org/",
-	},
-	{
-		name: "MongoDB",
-		logo: "/logos/mongodb.svg",
-		description: "Schema-less NoSQL. Perfect for when SQL makes you cry.",
-		url: "https://www.mongodb.com/",
-	},
-	{
-		name: "Express",
-		logo: "/logos/express.svg",
-		description:
-			"Minimal Node.js framework for slapping together APIs in style.",
-		url: "https://expressjs.com/",
 	},
 	{
 		name: "React",
@@ -32,18 +12,22 @@ export const techList = [
 		url: "https://react.dev/",
 	},
 	{
-		name: "Node.js",
-		logo: "/logos/node.svg",
-		description:
-			"Server-side JS. Non-blocking beast. Powers the backend hustle.",
-		url: "https://nodejs.org/",
+		name: "Express",
+		logo: "/logos/express.svg",
+		description: "Minimal Node.js framework for slapping together APIs in style.",
+		url: "https://expressjs.com/",
 	},
 	{
-		name: "Next.js",
-		logo: "/logos/nextjs.svg",
-		description:
-			"The React overlord. Handles SSR, routing, and APIs like a boss.",
-		url: "https://nextjs.org/",
+		name: "MongoDB",
+		logo: "/logos/mongodb.svg",
+		description: "Schema-less NoSQL. Perfect for when SQL makes you cry.",
+		url: "https://www.mongodb.com/",
+	},
+	{
+		name: "Redis",
+		logo: "/logos/redis.svg",
+		description: "Lightning-fast key-value store. Used for caching, queues, and flexing.",
+		url: "https://redis.io/",
 	},
 	{
 		name: "Socket.IO",
@@ -52,50 +36,63 @@ export const techList = [
 		url: "https://socket.io/",
 	},
 	{
-		name: "Redis",
-		logo: "/logos/redis.svg",
-		description:
-			"Lightning-fast key-value store. Used for caching, queues, and flexing.",
-		url: "https://redis.io/",
+		name: "Next.js",
+		logo: "/logos/nextjs.svg",
+		description: "The React overlord. Handles SSR, routing, and APIs like a boss.",
+		url: "https://nextjs.org/",
+	},
+	{
+		name: "Node.js",
+		logo: "/logos/node.svg",
+		description: "Server-side JS. Non-blocking beast. Powers the backend hustle.",
+		url: "https://nodejs.org/",
 	},
 	{
 		name: "Docker",
 		logo: "/logos/docker.svg",
-		description:
-			"Containerization juggernaut. Runs your app anywhere but your emotions.",
+		description: "Containerization juggernaut. Runs your app anywhere but your emotions.",
 		url: "https://www.docker.com/",
 	},
 	{
 		name: "Git & GitHub",
 		logo: "/logos/git_github.svg",
-		description:
-			"Version control lifeline. Commits, branches, and the occasional force push to fix your sins.",
-		url: "https://github.com/",
+		description: "Version control lifeline. Commits, branches, and the occasional force push to fix your sins.",
+		url: "https://git-scm.com/",
 	},
 	{
 		name: "C++",
 		logo: "/logos/cpp.svg",
-		description:
-			"My first love. I use it for DSA — fast, powerful, and deeply unforgiving.",
+		description: "My first love. I use it for DSA — fast, powerful, and deeply unforgiving.",
 		url: "https://isocpp.org/",
 	},
 	{
-        name: "HTML",
+		name: "Java",
+		logo: "/logos/java.svg",
+		description: "Hated it but SpringBoot...",
+		url: "https://www.java.com/",
+	},
+	{
+		name: "HTML",
 		logo: "/logos/html.svg",
 		description: "Skeleton of the web. Without it, your site’s just a dream.",
 		url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
 	},
 	{
-        name: "CSS",
+		name: "CSS",
 		logo: "/logos/css.svg",
 		description: "The reason your site looks sexy or like it was made in 2002.",
 		url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
 	},
-    {
-        name: "Tailwind CSS",
-        logo: "/logos/tailwind.svg",
-        description:
-            "Utility-first CSS framework. Design like a god, write like a coder.",
-        url: "https://tailwindcss.com/",
-    },
+	{
+		name: "Tailwind CSS",
+		logo: "/logos/tailwind.svg",
+		description: "Utility-first CSS framework. Design like a god, write like a coder.",
+		url: "https://tailwindcss.com/",
+	},
+	{
+		name: "JavaScript",
+		logo: "/logos/js.svg",
+		description: "Dynamic language for web dev. Loves callbacks and chaos equally.",
+		url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+	},
 ];

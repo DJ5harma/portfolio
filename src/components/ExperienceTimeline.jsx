@@ -36,7 +36,7 @@ export default function ExperienceTimeline() {
 			icon: GraduationCap,
 			type: "education",
 			achievements: [
-				"Diving into systems, software, and everything in between",
+				"Diving into systems, software, and in-between",
 				"Combining coursework with real-world experience",
 				"Surviving engineering with curiosity and code",
 			],
