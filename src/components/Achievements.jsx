@@ -1,4 +1,5 @@
 import { achievements } from "@/data/achievements";
+
 export default function Achievements() {
 	return (
 		<section className="w-full flex flex-col items-center">

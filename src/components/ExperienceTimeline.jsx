@@ -12,6 +12,73 @@ import {
 	Star,
 } from "lucide-react";
 
+const timelineData = [
+	{
+		year: "2026",
+		title: "Graduation",
+		subtitle: "B.Tech in Computer Science",
+		description:
+			"Completing my degree with a strong foundation in Computer Science & Engineering",
+		icon: GraduationCap,
+		type: "education",
+		achievements: [
+			"Diving into systems, software, and in-between",
+			"Combining coursework with real-world experience",
+			"Surviving engineering with curiosity and code",
+		],
+	},
+	{
+		year: "2025",
+		title: "Advanced Projects",
+		subtitle: "Full Stack Development",
+		description:
+			"Building complex real-time applications and collaborative tools",
+		icon: Code,
+		type: "project",
+		achievements: [
+			"Blitzit - Real-time, Collaborative, Scalable IDE",
+			"DrawBuddy - Collaborative Whiteboard",
+			"WebRTC Implementation",
+		],
+	},
+	{
+		year: "2024",
+		title: "Skill Development",
+		subtitle: "Technology Stack Expansion",
+		description: "Mastering new technologies and building diverse projects",
+		icon: Star,
+		type: "skill",
+		achievements: ["YouTube Clone", "MERN Stack Projects", "GitHub commits"],
+	},
+	{
+		year: "2023",
+		title: "Competitive Programming",
+		subtitle: "DSA & Problem Solving",
+		description:
+			"Intensive focus on data structures, algorithms, and competitive programming",
+		icon: Award,
+		type: "achievement",
+		achievements: [
+			"DSA Problems",
+			"LeetCode Solutions",
+			"Algorithm Optimization",
+		],
+	},
+	{
+		year: "2022",
+		title: "Academic Journey",
+		subtitle: "B.Tech CS @ UIET",
+		description: "Started my computer science journey through JEE",
+		icon: Calendar,
+		type: "education",
+		achievements: [
+			"JEE 2022: 93.21%ile",
+			"University Admission",
+			"Core CS Foundation",
+		],
+	},
+];
+
 export default function ExperienceTimeline() {
 	const [ref, inView] = useInView({
 		threshold: 0.1,
@@ -26,72 +93,6 @@ export default function ExperienceTimeline() {
 
 	const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
-	const timelineData = [
-		{
-			year: "2026",
-			title: "Graduation",
-			subtitle: "B.Tech in Computer Science",
-			description:
-				"Completing my degree with a strong foundation in Computer Science & Engineering",
-			icon: GraduationCap,
-			type: "education",
-			achievements: [
-				"Diving into systems, software, and in-between",
-				"Combining coursework with real-world experience",
-				"Surviving engineering with curiosity and code",
-			],
-		},
-		{
-			year: "2025",
-			title: "Advanced Projects",
-			subtitle: "Full Stack Development",
-			description:
-				"Building complex real-time applications and collaborative tools",
-			icon: Code,
-			type: "project",
-			achievements: [
-				"Blitzit - Real-time, Collaborative, Scalable IDE",
-				"DrawBuddy - Collaborative Whiteboard",
-				"WebRTC Implementation",
-			],
-		},
-		{
-			year: "2024",
-			title: "Skill Development",
-			subtitle: "Technology Stack Expansion",
-			description: "Mastering new technologies and building diverse projects",
-			icon: Star,
-			type: "skill",
-			achievements: ["YouTube Clone", "MERN Stack Projects", "GitHub commits"],
-		},
-		{
-			year: "2023",
-			title: "Competitive Programming",
-			subtitle: "DSA & Problem Solving",
-			description:
-				"Intensive focus on data structures, algorithms, and competitive programming",
-			icon: Award,
-			type: "achievement",
-			achievements: [
-				"DSA Problems",
-				"LeetCode Solutions",
-				"Algorithm Optimization",
-			],
-		},
-		{
-			year: "2022",
-			title: "Academic Journey",
-			subtitle: "B.Tech CS @ UIET",
-			description: "Started my computer science journey through JEE",
-			icon: Calendar,
-			type: "education",
-			achievements: [
-				"JEE 2022: 93.21%ile",
-				"University Admission",
-				"Core CS Foundation",
-			],
-		},
-	];
 
 	const getIconColor = (type) => {
 		const colors = {

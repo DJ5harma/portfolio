@@ -2,50 +2,101 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { techList } from "@/data/techList";
 
+function TechPopup({ tech, position, onHover, onLeave }) {
+	if (!tech) return null;
+
+	return (
+		<motion.div
+			initial={{ opacity: 0, scale: 0.8, y: 20 }}
+			animate={{ opacity: 1, scale: 1, y: 0 }}
+			exit={{ opacity: 0, scale: 0.8, y: 20 }}
+			transition={{ duration: 0.2 }}
+			onMouseEnter={onHover}
+			onMouseLeave={onLeave}
+			style={{
+				position: "fixed",
+				left: position.x,
+				top: position.y,
+				transform: "translateX(-50%) translateY(-100%)",
+				zIndex: 1000,
+			}}
+			className="bg-gradient-to-br from-neutral-950 to-neutral-900 backdrop-blur-xl rounded-2xl p-8 max-w-sm border border-neutral-800 shadow-2xl"
+		>
+			<div className="flex items-center gap-4 mb-6">
+				<div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-xl flex items-center justify-center">
+					<img
+						src={tech.logo}
+						alt={tech.name}
+						className="w-full h-full object-contain rounded-xl p-1 bg-white"
+					/>
+				</div>
+				<div>
+					<h3 className="text-2xl font-bold text-gradient-primary">
+						{tech.name}
+					</h3>
+					<div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mt-2" />
+				</div>
+			</div>
+
+			<p className="text-muted-foreground mb-6 leading-relaxed text-sm">
+				{tech.description}
+			</p>
+
+			<a
+				href={tech.url}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+			>
+				Learn More
+				<svg
+					className="w-4 h-4"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+				>
+					<path
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						strokeWidth={2}
+						d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+					/>
+				</svg>
+			</a>
+		</motion.div>
+	);
+}
+
 export default function InteractiveTechTree() {
-	const [ref, inView] = useInView({
-		threshold: 0.1,
-		triggerOnce: true,
-	});
+	const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
 	const [hoveredTech, setHoveredTech] = useState(null);
 	const [hoverPosition, setHoverPosition] = useState({ x: 0, y: 0 });
-	const [isHovering, setIsHovering] = useState(false); // tracks both tech and popup hover
+	const [isHovering, setIsHovering] = useState(false);
 
-	const handleTechHover = (tech, event) => {
+	const handleTechHover = useCallback((tech, event) => {
 		if (!event) return;
-
-		const x = event.clientX;
-		const y = event.clientY;
-
 		setHoveredTech(tech);
-		setHoverPosition({ x, y });
+		setHoverPosition({ x: event.clientX, y: event.clientY });
 		setIsHovering(true);
-	};
+	}, []);
 
-	const handleTechLeave = () => {
-		setIsHovering(false);
-	};
-
-	const handlePopupEnter = () => setIsHovering(true);
-	const handlePopupLeave = () => setIsHovering(false);
+	const handleLeave = useCallback(() => setIsHovering(false), []);
+	const handleEnter = useCallback(() => setIsHovering(true), []);
 
 	useEffect(() => {
 		if (!isHovering) {
-			const timeout = setTimeout(() => {
-				setHoveredTech(null);
-			}, 200); // gives you time to enter the popup
-
+			const timeout = setTimeout(() => setHoveredTech(null), 200);
 			return () => clearTimeout(timeout);
 		}
 	}, [isHovering]);
 
 	return (
 		<section className="py-20 px-4 relative overflow-hidden">
-			{/* Background Effects */}
+			{/* Background */}
 			<div className="absolute inset-0">
 				<div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-full blur-3xl animate-pulse" />
 				<div
@@ -71,7 +122,7 @@ export default function InteractiveTechTree() {
 					</p>
 				</motion.div>
 
-				{/* Tech Grid */}
+				{/* Grid */}
 				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
 					{techList.map((tech, index) => (
 						<motion.div
@@ -85,7 +136,7 @@ export default function InteractiveTechTree() {
 								transition: { duration: 0.2 },
 							}}
 							onMouseEnter={(e) => handleTechHover(tech, e)}
-							onMouseLeave={handleTechLeave}
+							onMouseLeave={handleLeave}
 							className="relative group cursor-pointer"
 						>
 							<div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-6 h-48 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-2xl border border-white/20 hover:border-purple-500/50 overflow-hidden">
@@ -107,67 +158,13 @@ export default function InteractiveTechTree() {
 					))}
 				</div>
 
-				{/* Floating Popup */}
-				{hoveredTech && (
-					<motion.div
-						initial={{ opacity: 0, scale: 0.8, y: 20 }}
-						animate={{ opacity: 1, scale: 1, y: 0 }}
-						exit={{ opacity: 0, scale: 0.8, y: 20 }}
-						transition={{ duration: 0.2 }}
-						onMouseEnter={handlePopupEnter}
-						onMouseLeave={handlePopupLeave}
-						style={{
-							position: "fixed",
-							left: hoverPosition.x,
-							top: hoverPosition.y,
-							transform: "translateX(-50%) translateY(-100%)",
-							zIndex: 1000,
-						}}
-						className="bg-gradient-to-br from-neutral-950 to-neutral-900 backdrop-blur-xl rounded-2xl p-8 max-w-sm border border-neutral-800 shadow-2xl"
-					>
-						<div className="flex items-center gap-4 mb-6">
-							<div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-xl flex items-center justify-center">
-								<img
-									src={hoveredTech.logo}
-									alt={hoveredTech.name}
-									className="w-full h-full object-contain rounded-xl p-1 bg-white"
-								/>
-							</div>
-							<div>
-								<h3 className="text-2xl font-bold text-gradient-primary">
-									{hoveredTech.name}
-								</h3>
-								<div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mt-2" />
-							</div>
-						</div>
-
-						<p className="text-muted-foreground mb-6 leading-relaxed text-sm">
-							{hoveredTech.description}
-						</p>
-
-						<a
-							href={hoveredTech.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-						>
-							Learn More
-							<svg
-								className="w-4 h-4"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-								/>
-							</svg>
-						</a>
-					</motion.div>
-				)}
+				{/* Popup */}
+				<TechPopup
+					tech={hoveredTech}
+					position={hoverPosition}
+					onHover={handleEnter}
+					onLeave={handleLeave}
+				/>
 			</div>
 		</section>
 	);

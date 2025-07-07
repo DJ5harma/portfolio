@@ -94,3 +94,55 @@
 	animation: gradientShift 12s ease infinite;
 	text-shadow: 0 0 2px rgba(255, 255, 255, 0.3); /* Minimal, sharp glow */
 }
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
+@keyframes intro-0 {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes intro-1 {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes intro-2 {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.animate-intro-0 {
+	animation: intro-0 1s forwards;
+}
+.animate-intro-1 {
+	animation: intro-1 2s forwards;
+}
+.animate-intro-2 {
+	animation: intro-2 2s forwards;
+}
