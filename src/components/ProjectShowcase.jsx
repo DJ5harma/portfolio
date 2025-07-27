@@ -229,7 +229,7 @@ const OverlayButton = ({ onClick, children, asLink = false, href = "#" }) =>
 		<motion.a
 			href={href}
 			target="_blank"
-			rel="noopener noreferrer"
+			// rel="noopener noreferrer"
 			whileHover={{ scale: 1.1 }}
 			whileTap={{ scale: 0.9 }}
 			className="p-3 bg-muted rounded-full text-foreground hover:bg-muted-foreground/80 transition-colors"
@@ -262,7 +262,7 @@ const ActionLink = ({ href, children }) => (
 	<motion.a
 		href={href}
 		target="_blank"
-		rel="noopener noreferrer"
+		// rel="noopener noreferrer"
 		whileHover={{ scale: 1.05 }}
 		whileTap={{ scale: 0.95 }}
 		className="px-4 py-2 border border-purple-600 text-purple-600 rounded-lg font-medium hover:bg-purple-600 hover:text-white transition-all duration-300 flex items-center gap-2"
@@ -339,7 +339,7 @@ const ProjectModal = ({ project, image, onClose }) => (
 								<a
 									href={project.github}
 									target="_blank"
-									rel="noopener noreferrer"
+									// rel="noopener noreferrer"
 									className="btn-primary flex items-center gap-2"
 								>
 									<Github className="w-4 h-4" />

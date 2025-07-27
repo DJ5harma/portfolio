@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon, Download } from "lucide-react";
+import { RESUME_LINK } from "@/constants";
 
 export default function Navigation() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -72,7 +73,9 @@ export default function Navigation() {
 		if (element) {
 			element.scrollIntoView({ behavior: "smooth" });
 		}
-		setIsOpen(false);
+
+		// Delay closing the mobile nav to ensure scrolling happens
+		setTimeout(() => setIsOpen(false), 300); // Adjust timing as needed
 	};
 
 	const toggleTheme = () => {
@@ -150,8 +153,8 @@ export default function Navigation() {
 
 						{/* Resume Download */}
 						<motion.a
-							href="/public/Resume.pdf"
-							download
+							href={RESUME_LINK}
+							// download
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 							className="btn-primary flex items-center gap-2 text-sm"
@@ -222,8 +225,8 @@ export default function Navigation() {
 							</motion.button>
 
 							<motion.a
-								href="/public/Resume.pdf"
-								download
+								href={RESUME_LINK}
+								// download
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 								className="btn-primary flex items-center gap-2 text-sm"

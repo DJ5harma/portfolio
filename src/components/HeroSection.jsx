@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { Github, Linkedin, Download, Mail, Code2 } from "lucide-react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { RESUME_LINK } from "@/constants";
 
 export default function HeroSection() {
 	const [ref, inView] = useInView({
@@ -242,8 +243,8 @@ export default function HeroSection() {
 						className="flex flex-wrap justify-center gap-4"
 					>
 						<motion.a
-							href="/public/Resume.pdf"
-							download
+							href={RESUME_LINK}
+							// download
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 							className="btn-primary flex items-center gap-2"
@@ -254,7 +255,7 @@ export default function HeroSection() {
 						<motion.a
 							href="mailto:sunubhargav2004@gmail.com"
 							target="_blank"
-							rel="noopener noreferrer"
+							// rel="noopener noreferrer"
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 							className="btn-secondary flex items-center gap-2"
@@ -276,7 +277,7 @@ export default function HeroSection() {
 								key={link.name}
 								href={link.href}
 								target="_blank"
-								rel="noopener noreferrer"
+								// rel="noopener noreferrer"
 								initial={{ opacity: 0, scale: 0 }}
 								animate={inView ? { opacity: 1, scale: 1 } : {}}
 								transition={{

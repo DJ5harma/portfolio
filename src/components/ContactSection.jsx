@@ -11,6 +11,7 @@ import {
 	Linkedin,
 	Code2,
 } from "lucide-react";
+import { RESUME_LINK } from "@/constants";
 
 const contactInfo = [
 	{
@@ -159,7 +160,7 @@ export default function ContactSection() {
 									key={link.name}
 									href={link.href}
 									target="_blank"
-									rel="noopener noreferrer"
+									// rel="noopener noreferrer"
 									variants={itemVariants}
 									whileHover={{ scale: 1.1, rotate: 5 }}
 									whileTap={{ scale: 0.95 }}
@@ -204,7 +205,7 @@ export default function ContactSection() {
 							<motion.a
 								href="mailto:sunubhargav2004@gmail.com"
 								target="_blank"
-								rel="noopener noreferrer"
+								// rel="noopener noreferrer"
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 								className="btn-primary flex items-center gap-2"
@@ -213,10 +214,10 @@ export default function ContactSection() {
 								Start a Conversation
 							</motion.a>
 							<motion.a
-								href="/public/Resume.pdf"
-								download
+								href={RESUME_LINK}
+								// download
 								target="_blank"
-								rel="noopener noreferrer"
+								// rel="noopener noreferrer"
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 								className="btn-secondary flex items-center gap-2"

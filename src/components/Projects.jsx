@@ -22,7 +22,7 @@ export default function Projects() {
 									<a
 										href={github}
 										target="_blank"
-										rel="noopener noreferrer"
+										// rel="noopener noreferrer"
 										className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
 										title="View on GitHub"
 									>

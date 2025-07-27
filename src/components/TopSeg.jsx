@@ -68,7 +68,7 @@ export default function TopSeg() {
 								key={label}
 								className="flex items-center gap-2"
 								target="_blank"
-								rel="noopener noreferrer"
+								// rel="noopener noreferrer"
 								href={href}
 							>
 								<Image
